@@ -1,0 +1,47 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Музей Школы №335</title>
+    <link rel="shortcut icon" href="{% static '/media/images/logo.png' %}" type="image/x-icon">
+
+    <link href= "{% static 'style.css' %}" rel="stylesheet">
+    <script src= "{% static 'script.js' %}"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <a href="http://www.school335.ru/"><img src="{% static '/media/images/logo.png' %}" alt="Официальный сайт школы" class="static_logo" url="http://www.school335.ru/"></a>
+    <header onclick="scrollLogo()">
+
+        <div class="main__text">
+            <h1>Виртуальный музей школы №335</h1>
+            <br>
+            <h3>Данный сайт посвящен музею школу №335. Здесь вы можете увидеть экспонаты музея и их историю.</h3>
+        </div>
+
+    </header>
+
+
+    <main id="content">
+        {% for i in all_items %}
+            <a href="{{ i.get_absolute_url }}">
+                <div class="block">
+                    <img src="media/images/{{ i.url_name }}.png" alt="{{ i.title }}"/>
+                    <h1>{{ i.title }}</h1>
+                </div>
+            </a>
+        {% endfor %}
+        <button id="to_top_btn" onclick="scrollToTop()">
+            <i class="material-icons">arrow_upward</i>
+        </button>
+    </main>
+
+
+    <footer>
+
+    </footer>
+</body>
+</html>
